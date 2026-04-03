@@ -9,5 +9,4 @@ def fizzbuzz():
             print("Buzz", end="")
         else:
             print("{:d}".format(i), end="")
-        
-        print(" ", end="")
+         print(" ", end="")
