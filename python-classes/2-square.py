@@ -24,13 +24,10 @@ class Square:
             TypeError: Əgər size integer (tam ədəd) deyilsə.
             ValueError: Əgər size 0-dan kiçikdirsə.
         """
-        # 1. Tip yoxlanışı: Integer olmalıdır
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         
-        # 2. Dəyər yoxlanışı: Mənfi ola bilməz
         if size < 0:
             raise ValueError("size must be >= 0")
         
-        # Yoxlamalardan keçərsə, dəyəri mənimsədirik
         self.__size = size
