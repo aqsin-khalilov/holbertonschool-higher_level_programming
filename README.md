@@ -11,3 +11,5 @@ Python - Data Structures: Lists, Tuples
 Python - More Data Structures: Set, Dictionary
 
 Python - Classes and Objects
+
+Python - Exceptions
