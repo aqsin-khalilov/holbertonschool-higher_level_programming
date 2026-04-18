@@ -13,3 +13,5 @@ Python - More Data Structures: Set, Dictionary
 Python - Classes and Objects
 
 Python - Exceptions
+
+SQL - Introduction
