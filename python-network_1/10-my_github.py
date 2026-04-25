@@ -2,7 +2,7 @@
 """
 This script takes GitHub credentials (username and personal access token)
 and uses the GitHub API to display the user's ID.
-It uses Basic Authentication to access the information.
+It uses Basic Authentication and custom headers for the firewall.
 """
 import requests
 import sys
@@ -13,19 +13,20 @@ if __name__ == "__main__":
     username = sys.argv[1]
     token = sys.argv[2]
 
-    # GitHub API endpoint for the authenticated user
+    # GitHub API endpoint
     url = "https://api.github.com/aqsin-khalilov"
 
-    # Using Basic Authentication with username and token
-    # requests.get automatically handles the Auth header when auth is passed
-    response = requests.get(url, auth=(username, token))
+    # Custom headers to bypass the intranet firewall
+    headers = {'cfclearance': 'true'}
+
+    # Sending GET request with Basic Authentication and headers
+    response = requests.get(url, auth=(username, token), headers=headers)
 
     try:
         # Parse the response as JSON
         json_data = response.json()
-        # Display the 'id' field from the JSON response
-        # Using .get() returns None if 'id' is not present (e.g. wrong credentials)
+        # Get the 'id' field
         print(json_data.get('id'))
     except ValueError:
-        # In case the response is not a valid JSON
+        # If the response is not valid JSON
         print("None")
