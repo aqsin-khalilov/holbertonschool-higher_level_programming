@@ -41,8 +41,9 @@ def get_user(username):
 @app.route("/add_user", methods=["POST"])
 def add_user():
     """Adds a new user to the users dictionary via POST request."""
-    # Check if the request is valid JSON
     data = request.get_json()
+    
+    # Check if the request is valid JSON
     if not data:
         return jsonify({"error": "Invalid JSON"}), 400
 
@@ -51,11 +52,11 @@ def add_user():
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
-    # Check if username already exists
+    # Check if username already exists -> RETURN 409 CONFLICT
     if username in users:
-        return jsonify({"error": "User already exists"}), 400
+        return jsonify({"error": "User already exists"}), 409
 
-    # Add the user and return confirmation
+    # Add the user and return confirmation -> 201 CREATED
     users[username] = data
     return jsonify({"message": "User added", "user": data}), 201
 
