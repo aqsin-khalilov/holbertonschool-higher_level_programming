@@ -14,7 +14,7 @@ if __name__ == "__main__":
     token = sys.argv[2]
 
     # GitHub API endpoint
-    url = "https://api.github.com/aqsin-khalilov"
+    url = "https://api.github.com/user"
 
     # Custom headers to bypass the intranet firewall
     headers = {'cfclearance': 'true'}
