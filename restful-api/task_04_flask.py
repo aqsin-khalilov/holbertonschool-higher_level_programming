@@ -52,11 +52,12 @@ def add_user():
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
-    # Check if username already exists -> RETURN 409 CONFLICT
+    # Check if username already exists
+    # Mesajı "Username already exists" olaraq dəyişdik
     if username in users:
-        return jsonify({"error": "User already exists"}), 409
+        return jsonify({"error": "Username already exists"}), 409
 
-    # Add the user and return confirmation -> 201 CREATED
+    # Add the user and return confirmation
     users[username] = data
     return jsonify({"message": "User added", "user": data}), 201
 
