@@ -8,17 +8,13 @@ import urllib.request
 
 if __name__ == "__main__":
     url = "https://intranet.hbtn.io/status"
-    
     # Create a request object to add custom headers
     req = urllib.request.Request(url)
-    
     # Adding the required header to bypass the intranet firewall
     req.add_header('cfclearance', 'true')
 
-    # Using 'with' statement to ensure the resource is closed automatically
     with urllib.request.urlopen(req) as response:
         content = response.read()
-        
         print("Body response:")
         # Display the type of the content (bytes)
         print("\t- type: {}".format(type(content)))
