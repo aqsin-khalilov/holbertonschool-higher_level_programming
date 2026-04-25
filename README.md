@@ -21,3 +21,6 @@ Python - Network #0
 Python - Network #1
 
 RESTful API
+
+Python - Server-Side Rendering
+
