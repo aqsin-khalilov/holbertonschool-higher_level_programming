@@ -23,7 +23,6 @@ if __name__ == "__main__":
     try:
         # Sending the POST request
         response = requests.post(url, data=payload, headers=headers)
-        
         # Try to parse the response as JSON
         json_data = response.json()
 
